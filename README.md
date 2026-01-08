@@ -1,5 +1,6 @@
 # FPGA-Learning-Journey
 Verilog modules and FPGA projects developed on DE10-Lite board.
+
 🚀 Project Overview
 [Day 01] Clock Divider & BCD Counter
 Objective: Understand hardware parallelism and basic timing control.
