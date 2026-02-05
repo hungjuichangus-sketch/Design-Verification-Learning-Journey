@@ -25,12 +25,12 @@
 
 | *Component* | *Function* |
 | :---- | :---- |
-| *KEY $$0$$* | ***System Reset** (Active Low). Resets game, score, and history.* |
-| *KEY $$1$$* | ***Enter / Confirm**. Press to confirm the digit selected on the switches.* |
-| *SW $$3:0$$* | ***Digit Input**. Set binary value (0-9) for the current digit guess.* |
-| *SW $$7:4$$* | ***History Select**. View previous guesses (Index 0 \= 1st guess, Index 1 \= 2nd...).* |
-| *SW $$8$$* | ***Debug Mode**. Toggle ON to reveal the secret answer on the display.* |
-| *SW $$9$$* | ***Clear**. Toggle to clear the current input if you made a mistake typing.* |
+| ***KEY\[0\]*** | ***System Reset** (Active Low). Resets game, score, and history.* |
+| ***KEY\[1\]*** | ***Enter / Confirm**. Press to confirm the digit selected on the switches.* |
+| ***SW\[3:0\]*** | ***Digit Input**. Set binary value (0-9) for the current digit guess.* |
+| ***SW\[7:4\]*** | ***History Select**. View previous guesses (Index 0 \= 1st guess, Index 1 \= 2nd...).* |
+| ***SW\[8\]*** | ***Debug Mode**. Toggle ON to reveal the secret answer on the display.* |
+| ***SW\[9\]*** | ***Clear**. Toggle to clear the current input if you made a mistake typing.* |
 
 ### ***Outputs***
 
@@ -38,7 +38,7 @@
 | :---- | :---- |
 | ***HEX 3-0*** | *Displays the current 4-digit input OR the history playback.* |
 | ***HEX 5-4*** | *Displays the Score. **HEX5** \= 'A' count, **HEX4** \= 'B' count.* |
-| *LEDR $$9:0$$* | ***Game Progress**. LEDs light up sequentially to track how many attempts used.* |
+| ***LEDR\[9:0\]*** | ***Game Progress**. LEDs light up sequentially to track how many attempts used.* |
 
 ## ***🏗 Technical Architecture***
 
@@ -78,14 +78,4 @@
 ## ***📸 Demo***
 
 ### ***Video Walkthrough***
-
-*(Click the image below to watch the full 1-minute demo)*
-
-***Note:** If you don't use YouTube, you can upload the video to Google Drive and paste the shareable link here:*
-
-[*Watch Full Demo on Google Drive*](https://www.google.com/search?q=YOUR_DRIVE_LINK_HERE)
-
-### ***Gameplay Highlight (GIF)***
-
-*(Recommended: Replace this text with a short 5-10s GIF of a winning moment for quick preview)*
 
