@@ -29,7 +29,7 @@ This CPU core serves as the foundational Intellectual Property (IP) for my Maste
 
 ## **Programming the CPU (Baseline Version)**
 
-This baseline version of the processor operates via hand-coded machine language. There is no software toolchain attached to this specific repository. Instructions are manually translated into 32-bit Hex format and loaded directly into the InstructionMemory.v module, which initializes the ROM using the Verilog $readmemh function.
+This baseline version of the processor operates via hand-coded machine language. There is no software toolchain attached to this specific repository. Instructions are manually translated into 32-bit Hex format and loaded directly into the InstructionMemory.v module.
 
 ## **Future Roadmap**
 
