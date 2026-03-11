@@ -39,13 +39,13 @@ A secure entry system designed with robust input validation.
 
 ## ⚙️ Tools & Technologies
 * **Languages:** Verilog, SystemVerilog
-* **FPGA Hardware:** [Intel DE10-Lite]
-* **EDA Tools:** [Quartus Prime]
+* **FPGA Hardware:** Intel DE10-Lite
+* **EDA Tools:** Quartus Prime
 
 ## 📫 Contact Me
 I am actively seeking opportunities in RTL Design and Hardware Engineering. 
-* **LinkedIn:** [https://www.linkedin.com/in/hung-jui-chang-5b755a312/]
-* **Email:** [HungJuiChang.us@gmail.com]
+* **LinkedIn:** https://www.linkedin.com/in/hung-jui-chang-5b755a312/
+* **Email:** HungJuiChang.us@gmail.com
 
 ---
-*Created with by [Hung]*
+*Created with by Hung*
