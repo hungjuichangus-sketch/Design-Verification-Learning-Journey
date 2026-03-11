@@ -1,63 +1,51 @@
-FPGA & Verilog Learning Journey (DE10-Lite)
+# Welcome to My FPGA Portfolio! 👋
 
-This repository documents my progress in learning FPGA development and Verilog HDL. All projects are implemented using the Terasic DE10-Lite (Intel MAX 10 FPGA) development board.
+Hi there! I’m an aspiring hardware engineer, and this repository serves as a curated gallery of my **FPGA and Digital Logic Design** projects. My work focuses on RTL design using Verilog/SystemVerilog, hardware-software integration, and computer architecture.
 
-🚀 Project Overview
+Whether you are a recruiter or a fellow engineer, feel free to explore the source code, testbenches, and documentation for each project below.
 
-[Day 01] Clock Divider & BCD Counter
+---
 
-Objective: Understand hardware parallelism and basic timing control.
+## 🛠 Project Highlights
 
-Key Concepts:
-
-Frequency division (50MHz to 1Hz).
-
-Non-blocking assignments (<=) for sequential logic.
-
-Cascaded BCD (Binary Coded Decimal) counter architecture (00-59).
-
-Hardware Used: On-board 50MHz Oscillator, 7-Segment Displays (HEX0-HEX1).
-
-[Day 02] FSM & Button Debouncing
-
-Objective: Manage complex system states and handle noisy external inputs.
-
-Key Concepts:
-
-3-Always Block FSM: Clean separation of State Register, Next State Logic, and Output/Datapath.
-
-Button Debouncer: Filtering mechanical "chatter" using a 20ms blanking window.
-
-Synchronous Edge Detection: Implementing a pulse generator to ensure single-cycle increments.
-
-Hardware Used: Push Buttons (KEY0-KEY1), 7-Segment Displays.
-
-🛠️ Development Environment
-
-FPGA Hardware: Intel MAX 10 (10M50DAF484C7G)
-
-IDE: Intel Quartus Prime (Lite Edition)
-
-Language: Verilog HDL
-
-Hardware Documentation: DE10-Lite User Manual
-
-📂 Repository Structure
-
-.
-├── Day01/
-│   ├── ClockDivider.v      # 50MHz to 1Hz divider
-│   ├── Counter_00_59.v     # Dual-digit BCD counter logic
-│   └── HexDigit.v          # 7-segment decoder (Shared module)
-├── Day02/
-│   ├── Debouncer.v         # Finite State Machine for debouncing
-└── README.md
+### 🚀 RISC-V Processor (Pipelined & Single-Cycle)
+Developed two versions of a RISC-V (RV32I) processor to understand the trade-offs between architectural simplicity and throughput.
+* **Single-Cycle:** Implemented the full data path and control logic to execute instructions in a single clock cycle.
+* **Pipelined:** Designed a 5-stage pipeline (Fetch, Decode, Execute, Memory, Write-back) featuring hazard detection units and data forwarding logic to maximize frequency.
 
 
-📈 Future Goals
 
-[ ] Day 03: UART Communication (Serial TX/RX)
+### 🛰 ADXL345 I2C Accelerometer Controller
+A hardware-level controller designed to interface with the ADXL345 digital accelerometer via the I2C protocol.
+* Implemented a custom **I2C Master Controller** state machine.
+* Handles device initialization, register configuration, and real-time processing of X, Y, and Z-axis data.
 
-[ ] Day 04: VGA Controller (Video Signal Generation)
+### ⏱ Precision Reflex Timer
+A high-accuracy digital timer designed to measure and display human reaction time.
+* Uses high-frequency counters and debounced tactile switch inputs for millisecond precision.
+* Features a state machine to manage "Wait," "Trigger," and "Result" states, displaying data on 7-segment displays.
 
-[ ] Day 05: SPI/I2C Sensor Integration (Accelerometer)
+### 🔢 Bulls and Cows (Logic Game)
+A hardware implementation of the classic code-breaking game, emphasizing complex FSM design.
+* Features a pseudo-random number generator (LFSR) to create a secret code.
+* Includes comparison logic to calculate "Bulls" (correct digit/position) and "Cows" (correct digit/wrong position) in real-time.
+
+### 🔒 Digital Combinational Lock
+A secure entry system designed with robust input validation.
+* Implements a multi-digit sequence detector using an FSM.
+* Features programmable passkeys and a "lock-out" mechanism to handle incorrect attempts securely.
+
+---
+
+## ⚙️ Tools & Technologies
+* **Languages:** Verilog, SystemVerilog
+* **FPGA Hardware:** [Intel DE10-Lite]
+* **EDA Tools:** [Quartus Prime]
+
+## 📫 Contact Me
+I am actively seeking opportunities in RTL Design and Hardware Engineering. 
+* **LinkedIn:** [https://www.linkedin.com/in/hung-jui-chang-5b755a312/]
+* **Email:** [HungJuiChang.us@gmail.com]
+
+---
+*Created with by [Hung]*
