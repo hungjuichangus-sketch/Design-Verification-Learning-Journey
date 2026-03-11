@@ -12,10 +12,11 @@ The design is fundamentally split into control path and datapath modules, handli
 * **Datapath Router (Demultiplexer):** A custom FSM that monitors the FIFO's `empty` flag, safely handles the 1-cycle synchronous read latency, and routes the packetized data stream into dedicated X, Y, and Z registers.
 * **Axis Display Drivers:** Decodes the raw 16-bit axis data into human-readable formats on the physical 7-segment displays.
 
-## Key Hardware Concepts Demonstrated
-* **Repeated Start Implementation:** Accurately executes the precise I2C "Write-then-Read" sequence required to set a sensor's internal pointer and fetch data without releasing the bus.
-* **Bus Free Time Management:** Includes dedicated FSM wait states to ensure physical pull-up resistors have time to stabilize the bus between STOP and START conditions.
-* **Clock Domain & Latency Handling:** Successfully bridges the slow 100kHz I2C bus domain with the fast 50MHz FPGA fabric, utilizing state-driven pipeline alignment to prevent data skew.
+## Key Takeaways & Lessons Learned
+* **I2C Protocol Implementation:** Deepened my understanding of the I2C specification by building a controller from absolute scratch. Successfully managed edge cases like Repeated Starts (for Write-then-Read operations), open-drain High-Z bus floating, and physical STOP condition requirements.
+* **On-Chip Debugging with SignalTap:** Extensively utilized the Quartus SignalTap Logic Analyzer to debug state machine routing and waveform timing. Gained practical experience distinguishing between Pre-Synthesis logical simulations and Post-Fitting physical register inversions.
+* **Data Rate Matching & Buffering:** Implemented a synchronous FIFO pipeline to safely manage the massive speed differential between the 50MHz FPGA fabric and the 100kHz I2C bus, ensuring no data was dropped or overwritten during sensor polling.
+* **FSM Demultiplexing:** Designed a custom router state machine to read packetized (X, Y, Z) data from the FIFO, handling the inherent 1-clock-cycle read latency of synchronous M9K memory blocks without skewing the data.
 
 ## Hardware Requirements
 * Terasic DE10-Lite Board (Intel MAX 10 FPGA: 10M50DAF484C7G)
