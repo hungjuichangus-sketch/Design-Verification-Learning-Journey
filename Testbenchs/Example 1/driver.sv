@@ -1,4 +1,5 @@
 class driver;
+
     virtual reg_if vif;
 
     mailbox #(reg_item) drv_mbx;
@@ -9,37 +10,38 @@ class driver;
     endfunction
 
     task reset_pins();
-        vif.sel <= 0;
-        vif.wr <= 0;
-        vif.addr <= 0;
-        vif.wdata <= 0;
+        vif.drv_cb.sel <= 0;
+        vif.drv_cb.wr <= 0;
+        vif.drv_cb.addr <= 0;
+        vif.drv_cb.wdata <= 0;
     endtask
-    
+
     task run();
         reset_pins();
         forever begin
-
             reg_item req;
             drv_mbx.get(req);
-
             $display("[%0t] [Driver] Received item from mailbox. Driving pins...", $time);
 
-            @(posedge vif.clk);
-            vif.sel <= 1;
-            vif.wr <= req.wr;
-            vif.addr <= req.addr;
-
-            if(req.wr)begin
-                vif.wdata <= req.wdata;
+            @(vif.drv_cb); 
+            vif.drv_cb.sel <= 1;
+            vif.drv_cb.wr <= req.wr;
+            vif.drv_cb.addr <= req.addr;
+            
+            if(req.wr) begin
+                vif.drv_cb.wdata <= req.wdata;
             end
 
-            do begin
-                @(posedge vif.clk);
-                #1;
-            end while(vif.ready == 0);
+            @(vif.drv_cb);
 
-            vif.sel <= 0;
-            vif.wr <= 0;
+            if (req.wr == 0) begin
+                while (vif.ready == 0) begin
+                    @(vif.drv_cb);
+                end
+            end
+
+            vif.drv_cb.sel <= 0;
+            vif.drv_cb.wr <= 0;
         end
     endtask
 
