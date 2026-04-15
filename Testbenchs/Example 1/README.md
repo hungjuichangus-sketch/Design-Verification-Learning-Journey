@@ -26,7 +26,25 @@ The project is divided into the Design Under Test (DUT) and the verification env
 * **`test.sv`**: The specific test scenario that instantiates the environment, configures the stimulus, and coordinates the execution flow.
 * **`tb_top.sv`**: The top-level static module. It generates the clock and reset, instantiates the DUT and interface, and launches the class-based test.
 * **`run.do`**: The Tcl execution script used to automate the compilation and simulation flow.
-
+### 5. Architecture
+_________________________________________________________________
+      |                          ENVIRONMENT                            |
+      |   ________________      ________________      ________________  |
+      |  |   Generator    |    |   Scoreboard   |    |    Coverage    | |
+      |  |________________|    |________________|    |________________| |
+      |          |                     ^                      ^         |
+      |    (drv_mailbox)         (scb_mailbox)          (cov_mailbox)   |
+      |          v                     |                      |         |
+      |   ________________      ______________________________________  |
+      |  |    Driver      |    |               Monitor                | |
+      |  |________________|    |______________________________________| |
+      |__________|_____________________________^________________________|
+                 |                             |
+           ______|_____________________________|______
+          |                                           |
+          |                    DUT                    |
+          |___________________________________________|
+          
 ## Prerequisites & Execution
 This project is configured to run on standard SystemVerilog simulators (such as Siemens Questa, Synopsys VCS, Cadence Xcelium, or Aldec Riviera Pro). 
 
