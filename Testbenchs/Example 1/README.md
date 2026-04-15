@@ -27,7 +27,7 @@ The project is divided into the Design Under Test (DUT) and the verification env
 * **`tb_top.sv`**: The top-level static module. It generates the clock and reset, instantiates the DUT and interface, and launches the class-based test.
 * **`run.do`**: The Tcl execution script used to automate the compilation and simulation flow.
 ### 5. Architecture
-_________________________________________________________________
+       _________________________________________________________________
       |                          ENVIRONMENT                            |
       |   ________________      ________________      ________________  |
       |  |   Generator    |    |   Scoreboard   |    |    Coverage    | |
@@ -40,7 +40,7 @@ _________________________________________________________________
       |  |________________|    |______________________________________| |
       |__________|_____________________________^________________________|
                  |                             |
-           ______|_____________________________|______
+           ______v_____________________________|______
           |                                           |
           |                    DUT                    |
           |___________________________________________|
