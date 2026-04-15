@@ -49,7 +49,7 @@ The project is divided into the Design Under Test (DUT) and the verification env
 This project is configured to run on standard SystemVerilog simulators (such as Siemens Questa, Synopsys VCS, Cadence Xcelium, or Aldec Riviera Pro). 
 
 To execute the simulation directly via the browser:
-1. Navigate to the [EDA Playground Workspace](https://www.edaplayground.com/x/CuY8).
+1. Navigate to the [EDA Playground Workspace](https://www.edaplayground.com/x/tEFC).
 2. Ensure a SystemVerilog-compatible commercial simulator is selected in the left-hand menu.
 3. Click **Run**. The platform will automatically compile the design and execute the testbench.
 4. Review the console output upon completion to verify the Scoreboard comparisons and review the final functional coverage metrics.
