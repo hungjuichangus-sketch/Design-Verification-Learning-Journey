@@ -44,7 +44,35 @@ The project is divided into the Design Under Test (DUT) and the verification env
           |                                           |
           |                    DUT                    |
           |___________________________________________|
-          
+
+### 6. Test Strategy & Constraints
+The environment utilizes **Constrained-Random Verification (CRV)** to explore the design space efficiently. The `test_heavy_random` scenario executes **200 transactions** to ensure all bins in the coverage model are saturated.
+
+* **Address Range**: Transactions are constrained to `[8'h00 : 8'h32]` to focus on specific register banks.
+* **Transaction Mix**: A `dist` constraint ensures a 50/50 balance between Read and Write operations using `wr dist{0:=50, 1:=50}`.
+
+### 7. Coverage Report Summary
+The verification environment achieved **100.00% Functional Coverage** (simulated via Riviera-PRO). This confirms that every defined test scenario and cross-product was successfully exercised.
+
+**CUMULATIVE SUMMARY**
+| Coverage Type | Weight | Hits/Total | Percentage |
+| :--- | :--- | :--- | :--- |
+| **Covergroup Coverage** | 1 | 1 / 1 | **100.000%** |
+
+#### Detailed Bin Analysis
+| Coverpoint / Bin | Hits | Goal | Status |
+| :--- | :--- | :--- | :--- |
+| **cp_wr** (Read/Write) | | | **Covered** |
+| - bin write | 97 | 1 | Covered |
+| - bin read | 103 | 1 | Covered |
+| **cp_addr** (Address) | | | **Covered** |
+| - bin low [00:0F] | 53 | 1 | Covered |
+| - bin mid [10:1F] | 67 | 1 | Covered |
+| - bin high [20:32] | 80 | 1 | Covered |
+
+**Cross Coverage (`cross_wr_addr`)**: 
+Achieved 100% status by successfully hitting every combination of `{Read, Write}` across all address bins (`low`, `mid`, `high`), ensuring no operational state was left untested.
+
 ## Prerequisites & Execution
 This project is configured to run on standard SystemVerilog simulators (such as Siemens Questa, Synopsys VCS, Cadence Xcelium, or Aldec Riviera Pro). 
 
