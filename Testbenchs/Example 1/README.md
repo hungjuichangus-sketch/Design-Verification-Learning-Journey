@@ -8,7 +8,7 @@ This directory contains a complete class-based SystemVerilog testbench for verif
 The project is divided into the Design Under Test (DUT) and the verification environment components.
 
 ### 1. RTL & Interface
-* **`design.sv`**: The RTL implementation of the hardware (Register DUT).
+* **`reg_ctrl.sv`**: The RTL implementation of the hardware (Register DUT).
 * **`reg_if.sv`**: The SystemVerilog interface that bundles the signals connecting the testbench to the DUT.
 
 ### 2. Stimulus & Driving
@@ -24,7 +24,7 @@ The project is divided into the Design Under Test (DUT) and the verification env
 ### 4. Top-Level & Execution
 * **`env.sv`**: The environment class that encapsulates and structurally connects the generator, driver, monitor, scoreboard, and coverage components.
 * **`test.sv`**: The specific test scenario that instantiates the environment, configures the stimulus, and coordinates the execution flow.
-* **`testbench.sv`**: The top-level static module. It generates the clock and reset, instantiates the DUT and interface, and launches the class-based test.
+* **`tb_top.sv`**: The top-level static module. It generates the clock and reset, instantiates the DUT and interface, and launches the class-based test.
 * **`run.do`**: The Tcl execution script used to automate the compilation and simulation flow.
 
 ## Prerequisites & Execution
