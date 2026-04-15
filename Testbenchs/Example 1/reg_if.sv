@@ -10,4 +10,13 @@ interface reg_if #(
     logic sel;
     logic ready;
 
+    clocking drv_cb @(posedge clk);
+        output addr, wdata, wr, sel;
+        input rdata, ready;
+    endclocking
+
+    clocking mon_cb @(posedge clk);
+        input addr, wdata, rdata, wr, sel, ready;
+    endclocking
+
 endinterface
