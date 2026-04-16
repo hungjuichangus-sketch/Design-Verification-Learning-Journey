@@ -1,4 +1,4 @@
-# Design Verification Example 1: Register Testbench
+# Design Verification Example 2: Register Testbench
 
 ## Overview
 This directory contains a complete class-based SystemVerilog testbench for verifying a register design. The environment is built using a layered architecture, separating stimulus generation, pin-level driving, monitoring, checking, and functional coverage into distinct components. This modular approach is highly scalable and establishes the foundational methodology used in modern Design Verification.
