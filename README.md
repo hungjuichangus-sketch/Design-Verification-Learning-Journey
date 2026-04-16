@@ -8,11 +8,13 @@ My current focus is on building robust testbenches using **SystemVerilog (OOP, C
 
 ## 🎯 Verification Projects (SystemVerilog & UVM)
 *Currently building out pure SV and UVM environments to verify core hardware components.*
+### 💾 Register Space Verification Environment
+Designed a layered, class-based SystemVerilog verification environment for a register design, separating stimulus generation, pin-level driving, and monitoring into distinct, scalable components.
+* **Key Features:** Utilized **Constrained-Random Verification (CRV)** with distribution constraints to balance read/write traffic. Successfully reconstructed physical pin-level signaling back into Transaction-Level Models (TLMs) in the monitor and achieved **100% Functional Coverage** across all targeted address banks and operation cross-products.
 
-### 📦 Synchronous FIFO & Verification Environment
-Designed and verified a parameterizable Synchronous FIFO, a critical component for data buffering and clock domain crossing mitigation.
-* **RTL:** Implemented circular buffer logic with wrap-around bit (N+1 pointer) architecture for exact Full/Empty flag generation.
-* **Verification:** Developed a SystemVerilog testbench focusing on constrained-random testing, concurrent read/write scenarios, and corner-case error injection (overflow/underflow).
+### ➕ Synchronous Adder DV Environment
+Built a complete, OOP-based SystemVerilog testbench to verify a synchronous adder, transitioning from basic directed tests to a production-grade, event-driven architecture.
+* **Key Features:** Implemented **clocking blocks** to enforce strict setup/hold timing and eliminate hardware-software race conditions. Managed a dedicated active-low reset phase and utilized dynamic event triggering in the Scoreboard to handle test termination, achieving **100% Functional Coverage** on the arithmetic state space.
 
 ### ⚖️ Round Robin Arbiter (Priority Masking)
 Designed a hardware arbiter to manage shared bus access across multiple agents without starvation.
