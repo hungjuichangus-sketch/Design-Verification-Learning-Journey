@@ -97,15 +97,15 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
        | |  _____________  |       ___________      |  _____________  |          |
        | | |             | |      |           |     | |             | |          |
        | | |  Sequencer  | |      | Scoreboard|     | |  Sequencer  | |          |
-       | | |___       ___| |      |___________|     | |___       ___| |          |
-       | |     |     ^     |       ^       ^        |     |     ^     |          |
-       | |  ___V_____|___  |       |       |        |  ___V_____|___  |          |
-       | | |             | |       |       |        | |             | |          |
-       | | |   Driver    |-|----.  |       |        | |   Driver    | |          |
-       | | |_____________| |    |  |       |        | |_____________| |          |
-       | |  _____________  |    |  |       |        |  _____________  |          |
-       | | |             | |    |  |       |        | |             | |          |
-       | | | Monitor (Tx)|-|----|-´       `-------|-| Monitor (Rx)| | |          |
+       | | |_____________| |      |___________|     | |_____________| |          |
+       | |     |     ^     |        ^       ^       |     |     ^     |          |
+       | |  ___V_____|___  |        |       |       |  ___V_____|___  |          |
+       | | |             | |        |       |       | |             | |          |
+       | | |   Driver    |-|----.   |       |       | |   Driver    | |          |
+       | | |_____________| |    |   |       |       | |_____________| |          |
+       | |  _____________  |    |   |       |       |  _____________  |          |
+       | | |             | |    |   |       |       | |             | |          |
+       | | | Monitor (Tx)|-|----|--´        `-------|-| Monitor (Rx)| |          |
        | | |_____________| |    |                   | |_____________| |          |
        | |_________________|    |    __________     |_________________|          |
        |                        |   |          |                                 |
@@ -144,7 +144,7 @@ Developed two versions of a RISC-V (RV32I) processor to explore architectural tr
 
 * **Verification:** SystemVerilog (OOP, Randomization, Coverage, SVA), UVM (Factory, Phasing, TLM, Sequences).  
 * **Design:** Verilog-2001, SystemVerilog RTL, FSM Design.  
-* **Core Concepts:** CDC, Setup/Hold Timing, Cache Coherency, AMBA Protocols (AXI/APB).  
+* **Core Concepts:** CDC, Setup/Hold Timing.  
 * **Software:** C/C++, Python, Linux/Unix Shell, Makefile.  
 * **EDA Tools:** Metrics DSim, ModelSim/Questa, EDA Playground, Vivado/Quartus.
 
