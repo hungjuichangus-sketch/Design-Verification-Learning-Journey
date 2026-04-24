@@ -17,7 +17,7 @@ class coverage extends uvm_component;
 
     function void build_phase(uvm_phase phase);
         super.new(phase);
-        ap_imp = new("ap_imp", this);
+        ap_imp = build_phase("ap_imp", this);
     endfunction
 
     function void write(add_item t);
