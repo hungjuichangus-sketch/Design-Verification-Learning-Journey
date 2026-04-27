@@ -40,7 +40,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 * **add\_item.sv**: Transaction class (uvm\_sequence\_item) with arithmetic randomization.  
 * **driver.sv**: Translates high-level transactions into pin-level signaling via seq\_item\_port.  
 * **monitor.sv**: Passive component broadcasting reconstructed transactions via uvm\_analysis\_port.  
-* **scoreboard.sv**: Mathematically verifies ![][image1] and coordinates termination.  
+* **scoreboard.sv**: Mathematically verifies and coordinates termination.  
 * **coverage.sv**: Implements covergroups ensuring 100% functional coverage of the arithmetic state space.
 
 #### **Architecture Diagram**
