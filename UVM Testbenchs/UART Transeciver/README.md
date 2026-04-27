@@ -39,7 +39,7 @@ The project is divided into the hardware models (DUTs/FIFOs) and the UVM verific
        | |  _____________  |     ___________      |  _____________  |          |
        | | |             | |    |           |     | |             | |          |
        | | |  Sequencer  | |    | Scoreboard|     | |  Sequencer  | |          |
-       | | |___       ___| |    |___________|     | |___       ___| |          |
+       | | |_____________| |    |___________|     | |_____________| |          |
        | |     |     ^     |      ^       ^       |     |     ^     |          |
        | |  ___V_____|___  |      |       |       |  ___V_____|___  |          |
        | | |             | |      |       |       | |             | |          |
@@ -98,6 +98,32 @@ The verification environment achieved **100.00% Coverage**, successfully hitting
 
 *(Total simulated transaction elements: 200)*
 
+## Python Log Automation & CI/CD Triage
+In addition to the SystemVerilog UVM environment, this repository includes a custom Python parsing script (`parse_uart_log.py`) designed to simulate industry-standard CI/CD regression triage. 
+
+Instead of manually reading through thousands of lines of simulation logs, the script utilizes Python's Regular Expressions (`re` module) to automatically scan the output for critical verification metrics.
+* **State-Machine Parsing:** Safely ignores in-line simulation noise and locks onto the UVM Report Summary.
+* **Data Extraction:** Dynamically extracts `UVM_ERROR` counts, `UVM_FATAL` counts, total simulation time, and the final Coverage percentage.
+* **Pass/Fail Logic:** Automatically calculates a final test status based on strict thresholds (0 Errors and 100.0% Coverage required for a clean pass).
+
+**Execution:**
+Save your simulator output to `sim_log.txt` and run the parser from the terminal:
+```bash
+python parse_uart_log.py
+```
+
+*Sample Dashboard Output:*
+```text
+==================================================
+UART UVM REGRESSION DASHBOARD
+==================================================
+Total Sim Time  : 613375 ns
+Final Coverage  : 100.000%
+--------------------------------------------------
+STATUS: PASSED (Clean Log & Full Coverage)
+==================================================
+```
+
 ## Prerequisites & Execution
 This project is configured to run on standard SystemVerilog commercial simulators supporting UVM 1.2. 
 
@@ -107,3 +133,4 @@ To execute the simulation directly via the browser:
 3. Under *Run Options*, confirm the `run.do` script contains the `-acdb_file` flag to save the coverage database.
 4. Add the plusarg `+PKTS=[number]` to the Run Options to dynamically scale the test length without recompiling.
 5. Click **Run** and review the UVM reporting output and the printed ACDB coverage report in the console.
+6. *(Optional)* Copy the console output to `sim_log.txt` and run the Python parser locally to generate the CI/CD dashboard.
