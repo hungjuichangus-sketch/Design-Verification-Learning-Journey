@@ -4,18 +4,18 @@
 This repository contains a complete, Object-Oriented Universal Verification Methodology (UVM) testbench designed to verify an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and protocol compliance. The RTL features independent Read/Write state machines, while the verification suite leverages class inheritance to systematically stress hardware protection mechanisms, byte-level write strobes (`wstrb`), and unaligned access edge cases.
 
 ## Key Features
-## 1. Complete UVM Architecture: Built a scalable, class-based environment from scratch utilizing Agents, Scoreboards, coverage subscribers, and TLM ports.
+### 1. Complete UVM Architecture: * Built a scalable, class-based environment from scratch utilizing Agents, Scoreboards, coverage subscribers, and TLM ports.
 
-## 2. Polymorphic Test Matrix: Implemented 6 distinct test scenarios (Sanity, Read/Write Bursts, and Negative Tests) leveraging the UVM Factory to dynamically swap sequences without modifying the core environment.
+### 2. Polymorphic Test Matrix: * Implemented 6 distinct test scenarios (Sanity, Read/Write Bursts, and Negative Tests) leveraging the UVM Factory to dynamically swap sequences without modifying the core environment.
 
-## 3. Aggressive Negative Testing: Specifically targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return SLVERR (2'b10).
+### 3. Aggressive Negative Testing: * Specifically targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return SLVERR (2'b10).
 
-## 4. Protocol-Aware "Smart" Scoreboard: Developed an advanced scoreboard featuring predictive error handling and bitwise for-loops to accurately track byte-level Write Strobe (wstrb) memory masks.
+### 4. Protocol-Aware "Smart" Scoreboard: * Developed an advanced scoreboard featuring predictive error handling and bitwise for-loops to accurately track byte-level Write Strobe (wstrb) memory masks.
 
-## 5. Dynamic Simulation Control: Integrated SystemVerilog +plusargs to allow users to scale transaction volume (e.g., +num_pkts=50) and select test scenarios directly from the command line, entirely bypassing recompilation.
+### 5. Dynamic Simulation Control: * Integrated SystemVerilog +plusargs to allow users to scale transaction volume (e.g., +num_pkts=50) and select test scenarios directly from the command line, entirely bypassing recompilation.
 
-## 6. Log Automation: Wrote a custom Python parsing script utilizing Regex to automatically scrape UVM simulation logs, extract error counts, and calculate final functional coverage metrics for regression triage.
-## Architecture & File Structure
+### 6. Log Automation: * Wrote a custom Python parsing script utilizing Regex to automatically scrape UVM simulation logs, extract error counts, and calculate final functional coverage metrics for regression triage.
+### Architecture & File Structure
 
 The project strictly separates the hardware protocol logic from the software verification environment using a parameterized SystemVerilog package.
 
