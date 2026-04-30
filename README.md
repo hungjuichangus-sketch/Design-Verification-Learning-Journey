@@ -29,7 +29,46 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 
 ## **🏗️ Featured UVM Testbenches**
 
-### **1\. Synchronous Adder UVM Environment**
+### **🌟 AXI-Lite Slave Protocol Checker & UVM Environment (Featured)**
+
+**Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
+
+#### **Project Highlights & Key Features**
+* **Polymorphic Test Matrix:** Implemented **6 distinct test scenarios** (Sanity, Read/Write Bursts, and Negative Tests) leveraging the **UVM Factory** to dynamically swap sequences without modifying the core environment.
+* **Aggressive Negative Testing:** Targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return `SLVERR` (`2'b10`).
+* **Protocol-Aware "Smart" Scoreboard:** Developed an advanced scoreboard featuring predictive error handling and bitwise `for`-loops to accurately track byte-level Write Strobe (`wstrb`) memory masks.
+* **CI/CD Log Automation:** Wrote a custom Python parsing script utilizing Regex to automatically scrape UVM simulation logs, extract error counts, and calculate final functional coverage metrics for regression triage.
+* **Dual FSM RTL Architecture:** Designed the hardware DUT with independent Write and Read state machines to handle concurrent AXI channel processing.
+
+#### **Architecture Diagram**
+        _________________________________________________________________
+       |                           ENVIRONMENT                           |
+       |  _________________                             ______________   |
+       | |                 |                           |              |  |
+       | |    axi_agent    |                           | Scoreboard   |  |
+       | |  _____________  |       _____________       |______________|  |
+       | | |             | |      |             |             ^          |
+       | | |  Sequencer  | |      |  Coverage   |             |          |
+       | | |_____________| |      |_____________|             |          |
+       | |       |         |             ^                    |          |
+       | |  _____V_______  |             |                    |          |
+       | | |             | |             |                    |          |
+       | | |   Driver    | |             |                    |          |
+       | | |_____________| |             |                    |          |
+       | |       |         |             |                    |          |
+       | |  _____V_______  |  ___________|____________________|          |
+       | | |             | | |                                           |
+       | | |   Monitor   |-|-'                                           |
+       | | |_____________| |                                             |
+       | |_________________|                                             |
+       |_________________________________________________________________|
+                 | (AW, W, B, AR, R Channels)        ^
+         ________V___________________________________|________
+        |                                                     |
+        |                  AXI-LITE SLAVE DUT                 |
+        |_____________________________________________________|
+
+### * Synchronous Adder UVM Environment**
 
 **Overview:** A complete, class-based UVM testbench transitioning from a custom layered architecture to a standard UVM factory-based environment.
 
@@ -74,7 +113,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 * **Cumulative:** **100.00% Functional Coverage**  
 * **Cross Coverage (x\_a\_b):** Successfully hit all combinations of 1-bit inputs a and b.
 
-### **2\. Full-Duplex UART Transceiver UVM Environment**
+### * Full-Duplex UART Transceiver UVM Environment**
 
 **Overview:** A class-based UVM environment for a UART system, decoupling software TB from hardware using synchronous FIFOs and edge-detection synchronization.
 
