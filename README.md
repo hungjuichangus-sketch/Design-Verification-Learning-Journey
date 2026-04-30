@@ -77,7 +77,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 ### **🛰️ Synchronous Adder UVM Environment**
 
 **Overview:** A complete, class-based UVM testbench transitioning from a custom layered architecture to a standard UVM factory-based environment.
-
+<details>
 #### **Architecture & File Structure**
 
 * **my\_adder.sv**: RTL implementation with synchronous reset.  
@@ -118,11 +118,12 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 
 * **Cumulative:** **100.00% Functional Coverage**  
 * **Cross Coverage (x\_a\_b):** Successfully hit all combinations of 1-bit inputs a and b.
+</details>
 
 ### **🔢 Full-Duplex UART Transceiver UVM Environment**
 
 **Overview:** A class-based UVM environment for a UART system, decoupling software TB from hardware using synchronous FIFOs and edge-detection synchronization.
-
+<details>
 #### **Architecture & File Structure**
 
 * **uart\_top.sv**: Static top module instantiating the UVM interface and FIFO-bridged DUT.  
@@ -168,6 +169,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 * **Distribution Shaping:** 20% of traffic forced to 8'h00 and 8'hFF. 60% uses 0 delay to test back-to-back FIFO pressure.  
 * **Full-Duplex:** run\_phase triggers parallel Tx/Rx sequences in a fork...join block.  
 * **Results:** Achieved **100.00% Coverage** across all payload and delay bins.
+</details>
 
 ## **🛠 RTL Design & Architecture Foundations**
 
