@@ -30,7 +30,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 ## **🏗️ Featured UVM Testbenches**
 
 ### **🌟 AXI-Lite Slave Protocol Checker & UVM Environment (Featured)**
-
+<details>
 **Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
 
 #### **Project Highlights & Key Features**
@@ -68,7 +68,13 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
         |                  AXI-LITE SLAVE DUT                 |
         |_____________________________________________________|
 
-### **\Synchronous Adder UVM Environment**
+#### **Test Matrix & Coverage Strategy**
+* **Merged Coverage Strategy**: Achieved 100.00% Functional Coverage by merging databases across the full regression suite.
+
+* **Targeted Verification**: Negative tests were explicitly constrained to hit invalid memory spaces (ensuring clean SLVERR Scoreboard passes) to prove the hardware's defensive resilience, perfectly complementing the 100% coverage runs of the valid address tests.
+</details>
+
+### **🛰️ Synchronous Adder UVM Environment**
 
 **Overview:** A complete, class-based UVM testbench transitioning from a custom layered architecture to a standard UVM factory-based environment.
 
@@ -113,7 +119,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 * **Cumulative:** **100.00% Functional Coverage**  
 * **Cross Coverage (x\_a\_b):** Successfully hit all combinations of 1-bit inputs a and b.
 
-### * Full-Duplex UART Transceiver UVM Environment**
+### **🔢 Full-Duplex UART Transceiver UVM Environment**
 
 **Overview:** A class-based UVM environment for a UART system, decoupling software TB from hardware using synchronous FIFOs and edge-detection synchronization.
 
