@@ -103,5 +103,4 @@ You can run this full testbench directly in your browser via EDA Playground:
 * Run specific tests from the matrix via the UVM Factory: `+UVM_TESTNAME=[test_class_name]`
 
 ---
-**Author:** Hung Jui Chang
-*ASIC / IC Design Verification Engineer*
+**Author:** Hung
