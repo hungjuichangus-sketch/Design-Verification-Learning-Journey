@@ -68,7 +68,7 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
         |                  AXI-LITE SLAVE DUT                 |
         |_____________________________________________________|
 
-### *\. Synchronous Adder UVM Environment
+### **\.Synchronous Adder UVM Environment**
 
 **Overview:** A complete, class-based UVM testbench transitioning from a custom layered architecture to a standard UVM factory-based environment.
 
