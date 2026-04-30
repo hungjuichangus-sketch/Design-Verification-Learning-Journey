@@ -4,7 +4,8 @@
 This repository contains a complete, Object-Oriented Universal Verification Methodology (UVM) testbench designed to verify an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and protocol compliance. The RTL features independent Read/Write state machines, while the verification suite leverages class inheritance to systematically stress hardware protection mechanisms, byte-level write strobes (`wstrb`), and unaligned access edge cases.
 
 ## Key Features
-### 1. Complete UVM Architecture: * Built a scalable, class-based environment from scratch utilizing Agents, Scoreboards, coverage subscribers, and TLM ports.
+### 1. Complete UVM Architecture:
+* Built a scalable, class-based environment from scratch utilizing Agents, Scoreboards, coverage subscribers, and TLM ports.
 
 ### 2. Polymorphic Test Matrix: * Implemented 6 distinct test scenarios (Sanity, Read/Write Bursts, and Negative Tests) leveraging the UVM Factory to dynamically swap sequences without modifying the core environment.
 
