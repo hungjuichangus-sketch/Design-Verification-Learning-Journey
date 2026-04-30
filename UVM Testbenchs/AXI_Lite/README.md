@@ -6,15 +6,15 @@ This repository contains a complete, Object-Oriented Universal Verification Meth
 ## Key Features
 * Complete UVM Architecture: Built a scalable, class-based environment from scratch utilizing Agents, Scoreboards, coverage subscribers, and TLM ports.
 
-* Polymorphic Test Matrix: * Implemented 6 distinct test scenarios (Sanity, Read/Write Bursts, and Negative Tests) leveraging the UVM Factory to dynamically swap sequences without modifying the core environment.
+* Polymorphic Test Matrix: Implemented 6 distinct test scenarios (Sanity, Read/Write Bursts, and Negative Tests) leveraging the UVM Factory to dynamically swap sequences without modifying the core environment.
 
-* Aggressive Negative Testing: * Specifically targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return SLVERR (2'b10).
+* Aggressive Negative Testing: Specifically targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return SLVERR (2'b10).
 
-* Protocol-Aware "Smart" Scoreboard: * Developed an advanced scoreboard featuring predictive error handling and bitwise for-loops to accurately track byte-level Write Strobe (wstrb) memory masks.
+* Protocol-Aware "Smart" Scoreboard: Developed an advanced scoreboard featuring predictive error handling and bitwise for-loops to accurately track byte-level Write Strobe (wstrb) memory masks.
 
-* Dynamic Simulation Control: * Integrated SystemVerilog +plusargs to allow users to scale transaction volume (e.g., +num_pkts=50) and select test scenarios directly from the command line, entirely bypassing recompilation.
+* Dynamic Simulation Control: Integrated SystemVerilog +plusargs to allow users to scale transaction volume (e.g., +num_pkts=50) and select test scenarios directly from the command line, entirely bypassing recompilation.
 
-* Log Automation: * Wrote a custom Python parsing script utilizing Regex to automatically scrape UVM simulation logs, extract error counts, and calculate final functional coverage metrics for regression triage.
+* Log Automation: Wrote a custom Python parsing script utilizing Regex to automatically scrape UVM simulation logs, extract error counts, and calculate final functional coverage metrics for regression triage.
 ### Architecture & File Structure
 
 The project strictly separates the hardware protocol logic from the software verification environment using a parameterized SystemVerilog package.
