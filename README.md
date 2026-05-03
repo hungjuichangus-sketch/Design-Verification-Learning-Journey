@@ -10,6 +10,7 @@ My current focus is on building robust testbenches using **SystemVerilog (OOP, C
 
 **Overview:** A complete, Object-Oriented UVM testbench designed to verify a mock PCI Express (PCIe) Endpoint. The environment focuses on advanced protocol compliance, split-transaction architectures, and out-of-order tag matching.
 <details>
+         
 #### **Project Highlights & Key Features**
 * **Decoupled RX/TX Hardware Engines:** The RTL is designed with a true split-transaction architecture. It uses independent always_ff blocks for the RX and TX paths, linked by a SystemVerilog queue acting as a Pending Request Table (PRT) to prevent Head-of-Line (HOL) blocking.
 * **Out-of-Order "Smart" Scoreboard:** The UVM reference model utilizes $O(1)$ associative arrays keyed by the PCIe Tag. This allows it to instantly match and verify incoming Completions even when the hardware returns them completely out-of-order.
