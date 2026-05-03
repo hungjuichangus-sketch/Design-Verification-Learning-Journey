@@ -7,9 +7,9 @@ My current focus is on building robust testbenches using **SystemVerilog (OOP, C
 ## **🏗️ Featured UVM Testbenches**
 
 ### **⚡ PCIe Transaction Layer & Protocol Checker UVM Environment (Featured)**
-<details>
-**Overview:** A complete, Object-Oriented UVM testbench designed to verify a mock PCI Express (PCIe) Endpoint. The environment focuses on advanced protocol compliance, split-transaction architectures, and out-of-order tag matching.
 
+**Overview:** A complete, Object-Oriented UVM testbench designed to verify a mock PCI Express (PCIe) Endpoint. The environment focuses on advanced protocol compliance, split-transaction architectures, and out-of-order tag matching.
+<details>
 #### **Project Highlights & Key Features**
 * **Decoupled RX/TX Hardware Engines:** The RTL is designed with a true split-transaction architecture. It uses independent always_ff blocks for the RX and TX paths, linked by a SystemVerilog queue acting as a Pending Request Table (PRT) to prevent Head-of-Line (HOL) blocking.
 * **Out-of-Order "Smart" Scoreboard:** The UVM reference model utilizes $O(1)$ associative arrays keyed by the PCIe Tag. This allows it to instantly match and verify incoming Completions even when the hardware returns them completely out-of-order.
@@ -56,9 +56,9 @@ Built a robust, multi-phase verification plan spanning positive compliance and n
 </details>
 
 ### **🌟 AXI-Lite Slave Protocol Checker & UVM Environment (Featured)**
-<details>
-**Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
 
+**Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
+<details>
 #### **Project Highlights & Key Features**
 * **Polymorphic Test Matrix:** Implemented **6 distinct test scenarios** (Sanity, Read/Write Bursts, and Negative Tests) leveraging the **UVM Factory** to dynamically swap sequences without modifying the core environment.
 * **Aggressive Negative Testing:** Targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return `SLVERR` (`2'b10`).
