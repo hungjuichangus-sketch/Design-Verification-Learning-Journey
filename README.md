@@ -4,29 +4,6 @@ Hi there\! I’m an aspiring **ASIC/IC Design Verification Engineer** with a str
 
 My current focus is on building robust testbenches using **SystemVerilog (OOP, Constraints, SVA)**, mastering **UVM** methodologies, and developing deep architectural intuition to verify complex digital systems.
 
-## **🎯 Verification Projects (SystemVerilog & UVM)**
-
-*Currently building out pure SV and UVM environments to verify core hardware components.*
-
-### **💾 Register Space Verification Environment**
-
-Designed a layered, class-based SystemVerilog verification environment for a register design, separating stimulus generation, pin-level driving, and monitoring into distinct, scalable components.
-
-* **Key Features:** Utilized **Constrained-Random Verification (CRV)** with distribution constraints to balance read/write traffic. Successfully reconstructed physical pin-level signaling back into Transaction-Level Models (TLMs) in the monitor and achieved **100% Functional Coverage** across all targeted address banks and operation cross-products.
-
-### **⚖️ Round Robin Arbiter (Priority Masking)**
-
-Designed a hardware arbiter to manage shared bus access across multiple agents without starvation.
-
-* **RTL:** Implemented the "Masking Trick" and Two's Complement fixed-priority engine (req & \-req) for highly optimized, combinational round-robin rotation.
-
-### **⏱️ High-Frequency Interview Modules & CDC**
-
-A collection of industry-standard whiteboarding modules used to solidify Clock Domain Crossing (CDC) and timing concepts.
-
-* **Clock Dividers:** Implemented even and odd clock dividers, including a Divide-by-3 with a perfect **50% duty cycle**.  
-* **Sequence Detectors:** Designed overlapping Moore and Mealy FSMs to detect serial streams (e.g., 1101).
-
 ## **🏗️ Featured UVM Testbenches**
 
 ### **⚡ PCIe Transaction Layer & Protocol Checker UVM Environment (Featured)**
@@ -219,6 +196,25 @@ Built a robust, multi-phase verification plan spanning positive compliance and n
 * **Full-Duplex:** run\_phase triggers parallel Tx/Rx sequences in a fork...join block.  
 * **Results:** Achieved **100.00% Coverage** across all payload and delay bins.
 </details>
+
+### **💾 Register Space Verification Environment**
+
+Designed a layered, class-based SystemVerilog verification environment for a register design, separating stimulus generation, pin-level driving, and monitoring into distinct, scalable components.
+
+* **Key Features:** Utilized **Constrained-Random Verification (CRV)** with distribution constraints to balance read/write traffic. Successfully reconstructed physical pin-level signaling back into Transaction-Level Models (TLMs) in the monitor and achieved **100% Functional Coverage** across all targeted address banks and operation cross-products.
+
+### **⚖️ Round Robin Arbiter (Priority Masking)**
+
+Designed a hardware arbiter to manage shared bus access across multiple agents without starvation.
+
+* **RTL:** Implemented the "Masking Trick" and Two's Complement fixed-priority engine (req & \-req) for highly optimized, combinational round-robin rotation.
+
+### **⏱️ High-Frequency Interview Modules & CDC**
+
+A collection of industry-standard whiteboarding modules used to solidify Clock Domain Crossing (CDC) and timing concepts.
+
+* **Clock Dividers:** Implemented even and odd clock dividers, including a Divide-by-3 with a perfect **50% duty cycle**.  
+* **Sequence Detectors:** Designed overlapping Moore and Mealy FSMs to detect serial streams (e.g., 1101).
 
 ## **🛠 RTL Design & Architecture Foundations**
 
