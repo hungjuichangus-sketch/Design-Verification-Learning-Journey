@@ -60,6 +60,7 @@ Built a robust, multi-phase verification plan spanning positive compliance and n
 
 **Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
 <details>
+         
 #### **Project Highlights & Key Features**
 * **Polymorphic Test Matrix:** Implemented **6 distinct test scenarios** (Sanity, Read/Write Bursts, and Negative Tests) leveraging the **UVM Factory** to dynamically swap sequences without modifying the core environment.
 * **Aggressive Negative Testing:** Targeted edge cases—such as unaligned addresses and out-of-bounds memory requests—verifying the hardware's ability to defend itself and correctly return `SLVERR` (`2'b10`).
@@ -105,6 +106,7 @@ Built a robust, multi-phase verification plan spanning positive compliance and n
 
 **Overview:** A complete, class-based UVM testbench transitioning from a custom layered architecture to a standard UVM factory-based environment.
 <details>
+         
 #### **Architecture & File Structure**
 
 * **my\_adder.sv**: RTL implementation with synchronous reset.  
@@ -151,6 +153,7 @@ Built a robust, multi-phase verification plan spanning positive compliance and n
 
 **Overview:** A class-based UVM environment for a UART system, decoupling software TB from hardware using synchronous FIFOs and edge-detection synchronization.
 <details>
+         
 #### **Architecture & File Structure**
 
 * **uart\_top.sv**: Static top module instantiating the UVM interface and FIFO-bridged DUT.  
