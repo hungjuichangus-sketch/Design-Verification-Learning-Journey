@@ -29,6 +29,55 @@ A collection of industry-standard whiteboarding modules used to solidify Clock D
 
 ## **🏗️ Featured UVM Testbenches**
 
+### **⚡ PCIe Transaction Layer & Protocol Checker UVM Environment (Featured)**
+<details>
+**Overview:** A complete, Object-Oriented UVM testbench designed to verify a mock PCI Express (PCIe) Endpoint. The environment focuses on advanced protocol compliance, split-transaction architectures, and out-of-order tag matching.
+
+#### **Project Highlights & Key Features**
+* **Decoupled RX/TX Hardware Engines:** The RTL is designed with a true split-transaction architecture. It uses independent always_ff blocks for the RX and TX paths, linked by a SystemVerilog queue acting as a Pending Request Table (PRT) to prevent Head-of-Line (HOL) blocking.
+* **Out-of-Order "Smart" Scoreboard:** The UVM reference model utilizes $O(1)$ associative arrays keyed by the PCIe Tag. This allows it to instantly match and verify incoming Completions even when the hardware returns them completely out-of-order.
+* **Protocol-Aware Transactions:** The pcie_tlp_seq_item leverages post_randomize() to accurately bit-pack and align the PCIe TLP headers (Format, Type, Length, Tag, and Byte Enables) according to the strict PCI Express specification.
+* **Strict Bus Isolation (Dual-Lens Clocking):** The physical interface enforces a rigorous separation of concerns by using separate drv_cb (active outputs) and mon_cb (passive inputs) clocking blocks to eliminate testbench-to-DUT race conditions.
+* **Dynamic Simulation Control:** The environment integrates SystemVerilog +plusargs and the UVM Factory (set_type_override), allowing users to dynamically scale transaction volumes and swap complete test scenarios from the command line without recompiling the codebase.
+
+#### **Architecture Diagram**
+         ___________________________________________________________________
+        |                            ENVIRONMENT                            |
+        |  _______________________________________           _____________  |
+        | |               pcie_agent              |         |             | |
+        | |  _____________          _____________ |  cpl_ap | Scoreboard  | |
+        | | |             |        |             ||-------->|_____________| |
+        | | |  Sequencer  |        |   Monitor   ||  req_ap        ^        |
+        | | |_____________|        |_____________||--------.       |        |
+        | |       |                      ^        |        |   ____|______  |
+        | |  _____V_______               |        |        `->|           | |
+        | | |             |              |        |           |  Coverage | |
+        | | |   Driver    |              |        |           |___________| |
+        | | |_____________|              |        |                         |
+        | |_______|______________________|________|                         |
+        |_________|______________________|__________________________________|
+                  | Drives               | Samples both
+                  | rx_* wires           | rx_* and tx_* wires
+         _________V______________________|__________________________________
+        |                                                                   |
+        |                    pcie_tlp_if (Virtual Interface)                |
+        |___________________________________________________________________|
+                                          ^
+         _________________________________|_________________________________
+        |                                                                   |
+        |                        mock_pcie_ep (DUT)                         |
+        |___________________________________________________________________|
+        
+#### **Comprehensive Test Plan Strategy**
+Built a robust, multi-phase verification plan spanning positive compliance and negative error handling:
+
+* **Traffic & Throughput Stress:** Verified back-to-back traffic handling, rapid tag avalanches (queue saturation), and data integrity via hostile walking bit patterns.
+
+* **Architectural Corner Cases:** Targeted extreme boundaries including Maximum/Minimum payload sizes, unaligned memory accesses (verifying 7-bit Lower Address calculations), and zero-length read requests.
+
+* **Negative & Protocol Errors:* Injected malformed TLPs (length mismatches), unsupported requests (expecting UR status returns), and out-of-bounds memory tracking.
+</details>
+
 ### **🌟 AXI-Lite Slave Protocol Checker & UVM Environment (Featured)**
 <details>
 **Overview:** A complete, Object-Oriented UVM testbench and RTL implementation of an Advanced eXtensible Interface (AXI-Lite) Slave IP. The environment is heavily focused on UVM Factory polymorphism, aggressive negative testing, and hardware protection mechanisms.
